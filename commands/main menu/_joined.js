@@ -24,14 +24,12 @@ if (!rawChannels || rawChannels.length === 0) {
 }
 
 // Add "@" back to channel usernames
-let channels = rawChannels.map(ch => "@" + ch);
+let channels = rawChannels
 
-// Build API URL
-let url = "https://membership.bjcoderx.workers.dev/?bot_token=" + bot.token +
-          "&user_id=" + user.telegramid +
-          "&chat_id=" + encodeURIComponent(JSON.stringify(channels));
+// Build final API URL
+let url = "https://membership.bjcoderx.workers.dev/?bot_token=" + bot.token + "&user_id=" + user.telegramid + "&chat_id=" + encodeURIComponent(JSON.stringify(channels))
 
-HTTP.get({
+HTTP.post({
   url: url,
   success: "/check"
 });
