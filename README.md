@@ -1,84 +1,116 @@
-# BBReferContestBot - chat bot
-It is repository for chat bot: [@BBReferContestBot](https://t.me/BBReferContestBot)
+<div align="center">
 
-## What it is?
-This repository can be imported to [Bots.Business](https://bots.business) as a worked chat bot.
+# 🏆 **BBReferContestBot** 🏆  
+**Engage. Refer. Win. Gamble. Repeat!**  
+_A smart Telegram bot for referral, balances, and next-gen community growth._
 
-[Bots.Business](https://bots.business) - it is probably the first CBPaaS - Chat Bot Platform as a Service.
+</div>
 
-A CBPaaS is a cloud-based platform that enables developers to create chatbots without needing to build backend infrastructure.
+---
 
-## Create your own bot for Telegram from this Git repo
+## ✨ **About BBReferContestBot**
 
-How to create bot?
-1. Create bot with [@BotFather](https://telegram.me/BotFather) and take Secret Token
-2. Create bot in App and add Secret Token
-3. Add Public Key from App as [Deploy key](https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys) with read access (and write access for bot exporting if you need it)
-4. Do import for this git repo
+**BBReferContestBot** is a feature-packed, fully automated Telegram bot designed to make referral contests fun, competitive, and super effective. Whether you're running giveaways or building a group, this bot helps you track, manage, and reward referrals with advanced tools—including a **built-in gambling system**, **admin control panel**, and **next-level withdrawal methods**.
 
-Now you can talk with yours new Telegram Bot
+> **Gamify your growth and engage your users like never before!**
 
-See [more](https://help.bots.business/getting-started)
+---
 
-## Commands - in commands folder
-File name - it is command name (Bot it can be rewritten in command description)
+## ⚙️ **Features at a Glance**
 
-Command can have: `name`, `help`, `aliases` (second names), `answer`, `keyboard`, `scnarios` (for simple logic) and other options.
+| **Feature**                  | **Description**                                                                 |
+|------------------------------|---------------------------------------------------------------------------------|
+| **🔗 Referral Tracking**      | Generates unique links and tracks every successful invite in real-time.        |
+| **📊 Live Leaderboard**       | Displays top referrers and updates automatically.                              |
+| **🎰 Referral Gambling**      | Users can gamble their referral balance for a chance to win more!              |
+| **🧠 Admin Panel**            | Full-featured admin tools to manage, enable/disable systems, and view stats.   |
+| **🧾 Gambling History**       | Transparent logs of all user gambling activities.                              |
+| **🏦 Withdrawal System**      | Advanced withdrawal system using new technologies like Paytm/UPI/Wallets.      |
+| **⏹️ Toggle Everything**      | Admin can enable or disable gambling, withdrawals, posting, etc., anytime.     |
+| **📈 Anti-Cheat System**      | Protects the contest from fake/duplicate invites.                              |
+| **⏱️ Good Broadcast**         | Bot With Good Way Of Broadcasting Fast As Possible Through Bots.business       |
 
-### Command description
-It is file header:
+---
 
-    /*CMD
-      command: /test
-      help: this is help for ccommand
-      need_reply: [ true or false here ]
-      auto_retry_time: [ time in sec ]
-      answer: it is example answer for /test command
-      keyboard: button1, button2
-      aliases: /test2, /test3
-    CMD*/
+## 📸 **Screenshots**
 
-See [more](https://help.bots.business/commands)
+<div align="center">
 
-### Command body
-It is command code in JavaScript.
-Use Bot Java Script for logic in command.
+| **Main menu** | **Withdrawal System** |
+|----------------|-----------------------------|
+| ![Main Menu](https://i.ibb.co/ZRs679zG/Screenshot-20250411-162127-cropped.png) | ![Withdraw System](https://i.ibb.co/nqL1Kx0C/Screenshot-20250411-162331-cropped.png) |
 
-For example:
-> Bot.sendMessage(2+2);
+| **History** | **Gambling** |
+|-----------------|--------------------|
+| ![History](https://i.ibb.co/RkKfh2mh/Screenshot-20250411-163018-cropped.png) | ![Gambling](https://i.ibb.co/rKwNQp5j/Screenshot-20250411-162747-cropped.png) |
 
-See [more](https://help.bots.business/scenarios-and-bjs)
+| **Admin Panel** | **Admin Panel Part 2** |
+|------------------|------------------------|
+| ![Admin Panel](https://i.ibb.co/S70FGGG2/Screenshot-20250411-162145-cropped.png) | ![Admin Part 2](https://i.ibb.co/nqhpYcYH/Screenshot-20250411-162206-cropped.png) |
 
+</div>
 
-## Libraries - in libs folder
-You can store common code in the libs folder. File name - it is library name.
+---
 
-For example code in myLib.js:
+## 🚀 **How to Deploy**
 
-    function hello(){ Bot.sendMessage("Hello from lib!") }
-    function goodbye(name){ Bot.sendMessage("Goodbye, " + name) }
+1. Visit [bots.business](https://bots.business)
+2. Create a new bot and import this repo.
+3. Set your admin ID and configure rewards, rules, and toggles.
+4. Start the bot and invite users to compete and refer!
 
-    publish({
-      sayHello: hello,
-      sayGoodbyeTo: goodbye
-    })
+> No programming needed – simple, fast, powerful.
 
-then you can run in any bot's command:
+---
 
-    Libs.myLib.hello()
-    Libs.myLib.sayGoodbyeTo("Alice")
+## 🛠️ **Admin Panel Powers**
 
-See [more](https://help.bots.business/git/library)
+- Toggle **Gambling**, **Withdrawals**, **Leaderboard**, or **Auto Posts** anytime.
+- View **total referrals**, **pending requests**, and **gambling stats**.
+- Manually reward users or broadcast updates.
+- Track complete **gambling & withdrawal history**.
 
-## Other bots example
-See other bots examples in the [github](https://github.com/bots-business?utf8=✓&tab=repositories&q=&type=public&language=javascript) or in the [Bot Store](https://bots.business/)
+---
 
+## ⚡ **Gambling System (Optional)**
 
-## Other help
-[Help.bots.business](https://help.bots.business)
+> A fun way for users to multiply their referral balance!
 
-## API
-See [API](https://api.bots.business/docs#/docs/summary)
+- Gamble with coins earned from referrals.
+- Win multipliers of 1.92x based on luck or risk level.
+- Every play is logged and visible in history.
+- Admin can disable gambling at any time with one click.
 
+---
 
-![](https://bots.business/images/web-logo.png)
+## 💸 **Withdrawals Made Easy**
+
+- Users can request withdrawals with their balance.
+- Supports **UPI**, **Paytm**, **Crypto**, and more!
+- Withdrawal requests are sent to admin with full logs.
+- Admin can approve/decline from the panel.
+
+---
+
+## 🤝 **Contribute & Improve**
+
+<div align="center" style="border: 2px solid #89f7fe; padding: 20px; border-radius: 12px; background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);">
+
+### We welcome contributions!
+- Found a bug or want a new feature?
+- Submit an issue or open a pull request!
+
+> Every bit of feedback helps us grow.
+
+</div>
+
+---
+
+## ❤️ **Made with Love by [Amithkodjj](https://github.com/Amithkodjj)**
+
+<div align="center">
+
+Built to help creators, marketers, and communities thrive.  
+**Thank you for checking out BBReferContestBot. Let’s build something legendary!**
+
+</div>
