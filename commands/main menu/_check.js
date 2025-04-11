@@ -19,7 +19,6 @@ CMD*/
 if (content) {
   const { status, is_joined } = JSON.parse(content);
   let expectedCount = User.getProperty("joinCount") || 0;
-
   if (status === "false") {
     return Bot.sendMessage("⚠️ Bot must be admin in all channels to check properly.");
   }
