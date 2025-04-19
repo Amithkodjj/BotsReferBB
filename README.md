@@ -107,7 +107,122 @@ _A smart Telegram bot for referral, balances, and next-gen community growth._
 ---
 
 ## ❤️ **Made with Love by [Amithkodjj](https://github.com/Amithkodjj)**
-## The External API used [Membership](https://justpaste.it/j8e62)
+## EXTERNAL API MEMBERSHIP VERIFICATION
+```Javascript
+addEventListener("fetch", (event) => {
+  event.respondWith(handleRequest(event.request));
+});
+
+async function handleRequest(request) {
+  const url = new URL(request.url);
+
+  // Required parameters
+  const botToken = url.searchParams.get("bot_token");
+  const userId = url.searchParams.get("user_id");
+  const chatId = url.searchParams.get("chat_id");
+
+  // Validate parameters
+  if (!botToken || !userId || !chatId) {
+    return new Response(
+      JSON.stringify({
+        status: "false",
+        error: "Missing parameters: bot_token, user_id, or chat_id.",
+      }),
+      { headers: { "Content-Type": "application/json" } }
+    );
+  }
+
+  let channels;
+  try {
+    channels = JSON.parse(chatId);
+    if (!Array.isArray(channels)) {
+      throw new Error("Invalid format");
+    }
+  } catch (error) {
+    return new Response(
+      JSON.stringify({
+        status: "false",
+        error: "Invalid JSON format for chat_id. It must be a valid JSON array.",
+      }),
+      { headers: { "Content-Type": "application/json" } }
+    );
+  }
+
+  async function isBotAdmin(botToken, chatId) {
+    const botId = botToken.split(":")[0];
+    const apiUrl = `https://api.telegram.org/bot${botToken}/getChatMember?chat_id=${chatId}&user_id=${botId}`;
+    try {
+      const response = await fetch(apiUrl);
+      const result = await response.json();
+      if (result && result.result && result.result.status) {
+        return result.result.status === "administrator" || result.result.status === "creator";
+      }
+      return false;
+    } catch {
+      return false;
+    }
+  }
+
+  async function isUserJoinedChannel(botToken, chatId, userId) {
+    const apiUrl = `https://api.telegram.org/bot${botToken}/getChatMember?chat_id=${chatId}&user_id=${userId}`;
+    try {
+      const response = await fetch(apiUrl);
+      const result = await response.json();
+      if (result && result.result && result.result.status) {
+        const status = result.result.status;
+        return ["member", "administrator", "creator"].includes(status);
+      }
+      return false;
+    } catch {
+      return false;
+    }
+  }
+
+  let isAdmin = true;
+  let isJoined = true;
+
+  for (const channelId of channels) {
+    if (!(await isBotAdmin(botToken, channelId))) {
+      isAdmin = false;
+      break;
+    }
+    if (!(await isUserJoinedChannel(botToken, channelId, userId))) {
+      isJoined = false;
+      break;
+    }
+  }
+
+  if (!isAdmin) {
+    return new Response(
+      JSON.stringify({
+        status: "false",
+        is_joined: false,
+        error_message: "Please make the bot an admin on all your channels.",
+      }),
+      { headers: { "Content-Type": "application/json" } }
+    );
+  }
+
+  if (!isJoined) {
+    return new Response(
+      JSON.stringify({
+        status: "true",
+        is_joined: false,
+        error_message: "⚠️ You need to join all channels to use this bot.",
+      }),
+      { headers: { "Content-Type": "application/json" } }
+    );
+  }
+
+  return new Response(
+    JSON.stringify({
+      status: "true",
+      is_joined: true,
+    }),
+    { headers: { "Content-Type": "application/json" } }
+  );
+}
+```
 <div align="center">
 
 Built to help creators, marketers, and communities thrive.  
