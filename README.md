@@ -107,7 +107,7 @@ _A smart Telegram bot for referral, balances, and next-gen community growth._
 ---
 
 ## ❤️ **Made with Love by [Amithkodjj](https://github.com/Amithkodjj)**
-
+## The External API used [Membership](https://justpaste.it/j8e62)
 <div align="center">
 
 Built to help creators, marketers, and communities thrive.  
